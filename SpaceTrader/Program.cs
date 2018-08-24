@@ -11,6 +11,7 @@ namespace SpaceTrader
         static double moneyTotal = 0;
         static int planetSelection = 0;
         static bool validInput = true;
+        static double purchasePrice = 0;
 
         static void Main(string[] args)
         {
@@ -30,7 +31,10 @@ namespace SpaceTrader
 
         static void UserStats()
         {
-
+            Console.WriteLine(userCargo);
+            Console.WriteLine(timeTrav);
+            Console.WriteLine(moneyTotal);
+            Console.WriteLine(userMoney);
         }
 
         static void MainMenuEarth()
@@ -140,11 +144,12 @@ namespace SpaceTrader
 
         static void BuyMenuEarth()
         {
-            
+            do
+            { 
                 Console.WriteLine("What would you like to purchase?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $200 Cargo space = 1", "Type 1 for Gold $300 Cargo space = 2",
-                "Type 2 for Diamond $500 Cargo space = 3" };
+                "Type 2 for Diamond $500 Cargo space = 3", "Type 3 to exit to main menu" };
                 menu.AddRange(cargoItems);
                 foreach (string cargoItem in menu)
                 {
@@ -154,7 +159,7 @@ namespace SpaceTrader
 
 
                 if (userPurchaseEarth == 0)
-                {
+                {                    
                     userMoney -= 200;
                 }
                 else if (userPurchaseEarth == 1)
@@ -162,8 +167,12 @@ namespace SpaceTrader
                     userMoney -= 300;
                 }
                 else if (userPurchaseEarth == 2)
-                {
+                {                   
                     userMoney -= 500;
+                }
+                else if (userPurchaseEarth == 3)
+                {
+                    MainMenuEarth();
                 }
                 else
                 {
@@ -171,182 +180,210 @@ namespace SpaceTrader
                 }
 
                 Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Press 'enter' to continue");
                 Console.ReadLine();
+                validInput = false;
+            } while (!validInput);
         }
 
         static void BuyMenuAlpha()
         {
-            Console.WriteLine("What would you like to purchase?");
-            List<string> menu = new List<string>();
-            string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
+            do
+            { 
+                Console.WriteLine("What would you like to purchase?");
+                List<string> menu = new List<string>();
+                string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
                 "Type 2 for Diamond $300 Cargo space = 3" };
-            menu.AddRange(cargoItems);
-            foreach (string cargoItem in menu)
-            {
+                menu.AddRange(cargoItems);
+                foreach (string cargoItem in menu)
+                {
                 Console.WriteLine(cargoItem);
-            }
-            int userPurchaseAlpha = int.Parse(Console.ReadLine());
+                }
+                int userPurchaseAlpha = int.Parse(Console.ReadLine());
 
 
-            if (userPurchaseAlpha == 0)
-            {
+                if (userPurchaseAlpha == 0)
+                {
                 userMoney -= 100;
-            }
-            else if (userPurchaseAlpha == 1)
-            {
+                }
+                else if (userPurchaseAlpha == 1)
+                {
                 userMoney -= 400;
-            }
-            else if (userPurchaseAlpha == 2)
-            {
+                }
+                else if (userPurchaseAlpha == 2)
+                {
                 userMoney -= 300;
-            }
-            else
-            {
+                }
+                else
+                {
                 Console.WriteLine("Invalid input. Please select an option");
-            }
+                }
 
-            Console.WriteLine("Your current balance is: " + userMoney);
-            Console.ReadLine();
-        }
+                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Press 'enter' to continue");
+                Console.ReadLine();
+                validInput = false;
+            }while (!validInput);
+        }   
 
         static void BuyMenuPluto()
         {
-            Console.WriteLine("What would you like to purchase?");
-            List<string> menu = new List<string>();
-            string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
+            do
+            { 
+                Console.WriteLine("What would you like to purchase?");
+                List<string> menu = new List<string>();
+                string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
                 "Type 2 for Diamond $700 Cargo space = 3" };
-            menu.AddRange(cargoItems);
-            foreach (string cargoItem in menu)
-            {
+                menu.AddRange(cargoItems);
+                foreach (string cargoItem in menu)
+                {
                 Console.WriteLine(cargoItem);
-            }
-            int userPurchasePluto = int.Parse(Console.ReadLine());
+                }
+                int userPurchasePluto = int.Parse(Console.ReadLine());
 
 
-            if (userPurchasePluto == 0)
-            {
+                if (userPurchasePluto == 0)
+                {
                 userMoney -= 300;
-            }
-            else if (userPurchasePluto == 1)
-            {
+                }
+                else if (userPurchasePluto == 1)
+                {
                 userMoney -= 200;
-            }
-            else if (userPurchasePluto == 2)
-            {
+                }
+                else if (userPurchasePluto == 2)
+                {
                 userMoney -= 700;
-            }
-            else
-            {
+                }
+                else
+                {
                 Console.WriteLine("Invalid input. Please select an option");
-            }
+                }
 
-            Console.WriteLine("Your current balance is: " + userMoney);
-            Console.ReadLine();
+                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                validInput = false;
+            } while (!validInput);
         }
 
         static void SellMenuEarth()
         {
-            Console.WriteLine("What would you like to sell?");
-            List<string> menu = new List<string>();
-            string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
+            do
+            { 
+                Console.WriteLine("What would you like to sell?");
+                List<string> menu = new List<string>();
+                string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
                 "Type 2 for Diamond $700 Cargo space = 3" };
-            menu.AddRange(cargoItems);
-            foreach (string cargoItem in menu)
-            {
+                menu.AddRange(cargoItems);
+                foreach (string cargoItem in menu)
+                {
                 Console.WriteLine(cargoItem);
-            }
-            int userPurchasePluto = int.Parse(Console.ReadLine());
+                }
+                int userPurchasePluto = int.Parse(Console.ReadLine());
 
 
-            if (userPurchasePluto == 0)
-            {
+                if (userPurchasePluto == 0)
+                {
                 userMoney += 300;
-            }
-            else if (userPurchasePluto == 1)
-            {
+                }
+                else if (userPurchasePluto == 1)
+                {
                 userMoney += 200;
-            }
-            else if (userPurchasePluto == 2)
-            {
+                }
+                else if (userPurchasePluto == 2)
+                {
                 userMoney += 700;
-            }
-            else
-            {
+                }
+                else
+                {
                 Console.WriteLine("Invalid input. Please select an option");
-            }
+                }
 
-            Console.WriteLine("Your current balance is: " + userMoney);
-            Console.ReadLine();
+                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Press enter to continue");
+                Console.ReadLine();
+                validInput = false;
+            } while (!validInput);
         }
 
         static void SellMenuAlpha()
         {
-            Console.WriteLine("What would you like to sell?");
-            List<string> menu = new List<string>();
-            string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
+            do
+            { 
+                Console.WriteLine("What would you like to sell?");
+                List<string> menu = new List<string>();
+                string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
                 "Type 2 for Diamond $300 Cargo space = 3" };
-            menu.AddRange(cargoItems);
-            foreach (string cargoItem in menu)
-            {
+                menu.AddRange(cargoItems);
+                foreach (string cargoItem in menu)
+                {
                 Console.WriteLine(cargoItem);
-            }
-            int userPurchaseAlpha = int.Parse(Console.ReadLine());
+                }
+                int userPurchaseAlpha = int.Parse(Console.ReadLine());
 
 
-            if (userPurchaseAlpha == 0)
-            {
+                if (userPurchaseAlpha == 0)
+                {
                 userMoney += 100;
-            }
-            else if (userPurchaseAlpha == 1)
-            {
+                }
+                else if (userPurchaseAlpha == 1)
+                {
                 userMoney += 400;
-            }
-            else if (userPurchaseAlpha == 2)
-            {
+                }
+                else if (userPurchaseAlpha == 2)
+                {
                 userMoney += 300;
-            }
-            else
-            {
+                }
+                else
+                {
                 Console.WriteLine("Invalid input. Please select an option");
-            }
+                }
 
-            Console.WriteLine("Your current balance is: " + userMoney);
-            Console.ReadLine();
+                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Press 'enter' to continue");
+                Console.ReadLine();
+                validInput = false;
+            } while (!validInput);
         }
 
          static void SellMenuPluto()
         {
-            Console.WriteLine("What would you like to sell?");
-            List<string> menu = new List<string>();
-            string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
+            do
+            { 
+                Console.WriteLine("What would you like to sell?");
+                List<string> menu = new List<string>();
+                string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
                 "Type 2 for Diamond $700 Cargo space = 3" };
-            menu.AddRange(cargoItems);
-            foreach (string cargoItem in menu)
-            {
+                menu.AddRange(cargoItems);
+                foreach (string cargoItem in menu)
+                {
                 Console.WriteLine(cargoItem);
-            }
-            int userPurchasePluto = int.Parse(Console.ReadLine());
+                }
+                int userPurchasePluto = int.Parse(Console.ReadLine());
 
 
-            if (userPurchasePluto == 0)
-            {
+                if (userPurchasePluto == 0)
+                {
                 userMoney += 300;
-            }
-            else if (userPurchasePluto == 1)
-            {
+                }
+                else if (userPurchasePluto == 1)
+                {
                 userMoney += 200;
-            }
-            else if (userPurchasePluto == 2)
-            {
+                }
+                else if (userPurchasePluto == 2)
+                {
                 userMoney += 700;
-            }
-            else
-            {
+                }
+                else
+                {
                 Console.WriteLine("Invalid input. Please select an option");
-            }
+                }
 
-            Console.WriteLine("Your current balance is: " + userMoney);
-            Console.ReadLine();
+                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Press 'enter' to continue");
+                Console.ReadLine();
+                validInput = false;
+            } while (!validInput);
         }
 
         static void ShipUp()
