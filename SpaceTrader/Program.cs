@@ -10,6 +10,7 @@ namespace SpaceTrader
         static double timeTrav = 0;
         static double moneyTotal = 0;
         static int planetSelection = 0;
+        static bool validInput = true;
 
         static void Main(string[] args)
         {
@@ -34,89 +35,107 @@ namespace SpaceTrader
 
         static void MainMenuEarth()
         {
+            do
+            {
+                Console.WriteLine("Welcome to Earth! What would you like to do?");
+                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel, Type 4 to view Player stats, Type 5 to Exit");
+                int userSelection = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Welcome to Earth! What would you like to do?");
-            Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
-            int userSelection = int.Parse(Console.ReadLine());
-
-            if (userSelection == 1)
-            {
-                BuyMenuEarth();
-            }
-            else if (userSelection == 2)
-            {
-                SellMenuEarth();
-            }
-            else if (userSelection == 3)
-            {
-                Travel();
-            }
-            else if (userSelection == 4)
-            {
-                UserStats();
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please select an option.");
-            }
+                if (userSelection == 1)
+                {
+                    BuyMenuEarth();
+                }
+                else if (userSelection == 2)
+                {
+                    SellMenuEarth();
+                }
+                else if (userSelection == 3)
+                {
+                    Travel();
+                }
+                else if (userSelection == 4)
+                {
+                    UserStats();
+                }
+                else if (userSelection == 5)
+                {
+                    Travel();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Invalid input. Please select an option.");
+                    validInput = false;                   
+                }
+            } while (!validInput);
+          
+            
         }
 
         static void MainMenuAlpha()
         {
+            do
+            { 
+                Console.WriteLine("Welcome to Alpha Centauri! What would you like to do?");
+                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
+                int userSelection = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Welcome to Alpha Centauri! What would you like to do?");
-            Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
-            int userSelection = int.Parse(Console.ReadLine());
-
-            if (userSelection == 1)
-            {
+                if (userSelection == 1)
+                {
                 BuyMenuAlpha();
-            }
-            else if (userSelection == 2)
-            {
+                }
+                else if (userSelection == 2)
+                {
                 SellMenuAlpha();
-            }
-            else if (userSelection == 3)
-            {
+                }
+                else if (userSelection == 3)
+                {
                 Travel();
-            }
-            else if (userSelection == 4)
-            {
+                }
+                else if (userSelection == 4)
+                {
                 UserStats();
-            }
-            else
-            {
+                }
+                else
+                {
+                Console.Clear();
                 Console.WriteLine("Invalid input. Please select an option.");
-            }
+                validInput = false;
+                }
+            } while (!validInput);
         }
 
         static void MainMenuPluto()
         {
+            do
+            { 
+                Console.WriteLine("Welcome to Pluto! What would you like to do?");
+                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
+                int userSelection = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Welcome to Pluto! What would you like to do?");
-            Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
-            int userSelection = int.Parse(Console.ReadLine());
-
-            if (userSelection == 1)
-            {
+                if (userSelection == 1)
+                {
                 BuyMenuPluto();
-            }
-            else if (userSelection == 2)
-            {
+                }
+                else if (userSelection == 2)
+                {
                 SellMenuPluto();
-            }
-            else if (userSelection == 3)
-            {
+                }
+                else if (userSelection == 3)
+                {
                 Travel();
-            }
-            else if (userSelection == 4)
-            {
+                }
+                else if (userSelection == 4)
+                {
                 UserStats();
-            }
-            else
-            {
+                }
+                else
+                {
+                Console.Clear();
                 Console.WriteLine("Invalid input. Please select an option.");
-            }
+                validInput = false;
+                }
+            } while (!validInput);
         }
 
         static void BuyMenuEarth()
