@@ -1,0 +1,20 @@
+﻿In this game you will be SpaceTraver and travel between planets buying and selling cargo
+to make as much money as possible.
+
+You will start the game with $1,000.
+
+-There are three planets Earth, Alpha Centauri, and Pluto.
+	-Each planet will have a Trading Post where you can buy and sell.
+	-Each planet will have its own economy and cargo will have different values.
+	-Traveling will cause time to pass. 
+	
+-You will begin with a Basic Ship (Max Warp Speed - 5 and Max Cargo Capacity - 3)
+	-Ability to upgrade ship at Trading Posts.
+	-Each upgrade will increase speed of travel and cargo capacity.
+	
+
+
+Game will end when:
+	-You decide to Quit the game.
+	-You reach 40 years of travel time
+	-You run out of money.
