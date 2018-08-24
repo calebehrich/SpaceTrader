@@ -32,10 +32,10 @@ namespace SpaceTrader
 
         }
 
-        static void GameStart()
+        static void MainMenuEarth()
         {
 
-            Console.WriteLine("Welcome! What would you like to do?");
+            Console.WriteLine("Welcome to Earth! What would you like to do?");
             Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
             int userSelection = int.Parse(Console.ReadLine());
 
@@ -46,6 +46,64 @@ namespace SpaceTrader
             else if (userSelection == 2)
             {
                 SellMenuEarth();
+            }
+            else if (userSelection == 3)
+            {
+                Travel();
+            }
+            else if (userSelection == 4)
+            {
+                UserStats();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please select an option.");
+            }
+        }
+
+        static void MainMenuAlpha()
+        {
+
+            Console.WriteLine("Welcome to Alpha Centauri! What would you like to do?");
+            Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
+            int userSelection = int.Parse(Console.ReadLine());
+
+            if (userSelection == 1)
+            {
+                BuyMenuAlpha();
+            }
+            else if (userSelection == 2)
+            {
+                SellMenuAlpha();
+            }
+            else if (userSelection == 3)
+            {
+                Travel();
+            }
+            else if (userSelection == 4)
+            {
+                UserStats();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please select an option.");
+            }
+        }
+
+        static void MainMenuPluto()
+        {
+
+            Console.WriteLine("Welcome to Pluto! What would you like to do?");
+            Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
+            int userSelection = int.Parse(Console.ReadLine());
+
+            if (userSelection == 1)
+            {
+                BuyMenuPluto();
+            }
+            else if (userSelection == 2)
+            {
+                SellMenuPluto();
             }
             else if (userSelection == 3)
             {
@@ -285,15 +343,15 @@ namespace SpaceTrader
             
             if (planetSelection == 1)
             {
-                BuyMenuEarth();
+                MainMenuEarth();
             }
             else if (planetSelection == 2)
             {
-                BuyMenuAlpha();
+                MainMenuAlpha();
             }
             else if (planetSelection == 3)
             {
-                BuyMenuPluto();
+                MainMenuPluto();
             }
             else
             {
