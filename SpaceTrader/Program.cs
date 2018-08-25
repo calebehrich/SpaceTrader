@@ -6,28 +6,31 @@ namespace SpaceTrader
     class Program
     {
         static double userMoney = 1000;
+        static int silverCargo = 0;
+        static int goldCargo = 0;
+        static int diamondCargo = 0;
         static int userCargo = 0;
         static double timeTrav = 0;
-        static double moneyTotal = 0;
-        static int planetSelection = 0;
+        static double moneyTotal = 0;        
         static bool validInput = true;
-        static double purchasePrice = 0;
+        
 
         static void Main(string[] args)
         {
-            
+           // GameStory();
+           // GameDirections();
             Travel();
-          
+           // TODO Find a way to add cargo together and constraint buying and selling based on cargo
         }
 
         static void GameStory()
         {
             string[] directions = System.IO.File.ReadAllLines(@"c:\users\wwstudent\Source\Repos\SpaceTrader\SpaceTrader\GameStory.txt");
-        }
+        }  //TODO find out how to use these files on all computers
         static void GameDirections()
         {
             string[] directions = System.IO.File.ReadAllLines(@"c: \users\wwstudent\Source\Repos\SpaceTrader\SpaceTrader\GameDirections.txt");
-        }
+        }//TODO same
 
         static void UserStats()
         {
@@ -63,7 +66,8 @@ namespace SpaceTrader
                 }
                 else if (userSelection == 5)
                 {
-                    Travel();
+                    Exit();
+                    validInput = true;
                 }
                 else
                 {
@@ -81,7 +85,7 @@ namespace SpaceTrader
             do
             { 
                 Console.WriteLine("Welcome to Alpha Centauri! What would you like to do?");
-                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
+                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats, Type 5 to exit");
                 int userSelection = int.Parse(Console.ReadLine());
 
                 if (userSelection == 1)
@@ -100,6 +104,11 @@ namespace SpaceTrader
                 {
                 UserStats();
                 }
+                else if (userSelection == 5)
+                {
+                    Exit();
+                    validInput = true;
+                }
                 else
                 {
                 Console.Clear();
@@ -114,7 +123,7 @@ namespace SpaceTrader
             do
             { 
                 Console.WriteLine("Welcome to Pluto! What would you like to do?");
-                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats");
+                Console.WriteLine("Type 1 to buy, Type 2 to sell, Type 3 to Travel or Type 4 to view Player stats, Type 5 to exit");
                 int userSelection = int.Parse(Console.ReadLine());
 
                 if (userSelection == 1)
@@ -133,6 +142,11 @@ namespace SpaceTrader
                 {
                 UserStats();
                 }
+                else if (userSelection == 5)
+                {
+                    Exit();
+                    validInput = true;
+                }
                 else
                 {
                 Console.Clear();
@@ -144,6 +158,7 @@ namespace SpaceTrader
 
         static void BuyMenuEarth()
         {
+
             do
             { 
                 Console.WriteLine("What would you like to purchase?");
@@ -157,18 +172,24 @@ namespace SpaceTrader
                 }
                 int userPurchaseEarth = int.Parse(Console.ReadLine());
 
+                int purchaseSilver = 200;
+                int purchaseGold = 300;
+                int purchaseDiamond = 500;
 
-                if (userPurchaseEarth == 0)
+                if (userPurchaseEarth == 0 && userMoney > purchaseSilver)
                 {                    
                     userMoney -= 200;
+                    silverCargo++;
                 }
-                else if (userPurchaseEarth == 1)
+                else if (userPurchaseEarth == 1 && userMoney > purchaseGold)
                 {
                     userMoney -= 300;
+                    goldCargo++;
                 }
-                else if (userPurchaseEarth == 2)
+                else if (userPurchaseEarth == 2 && userMoney > purchaseDiamond)
                 {                   
                     userMoney -= 500;
+                    diamondCargo++;
                 }
                 else if (userPurchaseEarth == 3)
                 {
@@ -176,10 +197,10 @@ namespace SpaceTrader
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please select an option");
+                    Console.WriteLine("Invalid input.");
                 }
 
-                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Your current balance is: " + userMoney + "Your current cargo is: " + userCargo);
                 Console.WriteLine("Press 'enter' to continue");
                 Console.ReadLine();
                 validInput = false;
@@ -193,7 +214,7 @@ namespace SpaceTrader
                 Console.WriteLine("What would you like to purchase?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
-                "Type 2 for Diamond $300 Cargo space = 3" };
+                "Type 2 for Diamond $300 Cargo space = 3", "Type 3 to exit"};
                 menu.AddRange(cargoItems);
                 foreach (string cargoItem in menu)
                 {
@@ -201,25 +222,36 @@ namespace SpaceTrader
                 }
                 int userPurchaseAlpha = int.Parse(Console.ReadLine());
 
+                int purchaseSilver = 100;
+                int purchaseGold = 400;
+                int purchaseDiamond = 300;
 
-                if (userPurchaseAlpha == 0)
+                if (userPurchaseAlpha == 0 && userMoney > purchaseSilver)
                 {
-                userMoney -= 100;
+                    userMoney -= 100;
+                    silverCargo++;
                 }
-                else if (userPurchaseAlpha == 1)
+                else if (userPurchaseAlpha == 1 && userMoney > purchaseGold)
                 {
-                userMoney -= 400;
+                    userMoney -= 400;
+                    goldCargo++;
                 }
-                else if (userPurchaseAlpha == 2)
+                else if (userPurchaseAlpha == 2 && userMoney > purchaseDiamond)
                 {
-                userMoney -= 300;
+                    userMoney -= 300;
+                    diamondCargo++;
+                }
+                else if (userPurchaseAlpha == 3)
+                {
+                    MainMenuAlpha();
                 }
                 else
                 {
-                Console.WriteLine("Invalid input. Please select an option");
+                Console.WriteLine("Invalid input.");
                 }
 
                 Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Your cargo is at: " + DisplayCargo());
                 Console.WriteLine("Press 'enter' to continue");
                 Console.ReadLine();
                 validInput = false;
@@ -233,7 +265,7 @@ namespace SpaceTrader
                 Console.WriteLine("What would you like to purchase?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
-                "Type 2 for Diamond $700 Cargo space = 3" };
+                "Type 2 for Diamond $700 Cargo space = 3", "Type 3 to exit" };
                 menu.AddRange(cargoItems);
                 foreach (string cargoItem in menu)
                 {
@@ -241,25 +273,35 @@ namespace SpaceTrader
                 }
                 int userPurchasePluto = int.Parse(Console.ReadLine());
 
+                int purchaseSilver = 300;
+                int purchaseGold = 200;
+                int purchaseDiamond = 700;
 
-                if (userPurchasePluto == 0)
+                if (userPurchasePluto == 0 && userMoney > purchaseSilver)
                 {
-                userMoney -= 300;
+                    userMoney -= 300;
+                    silverCargo++;
                 }
-                else if (userPurchasePluto == 1)
+                else if (userPurchasePluto == 1 && userMoney > purchaseGold)
                 {
-                userMoney -= 200;
+                    userMoney -= 200;
+                    goldCargo++;
                 }
-                else if (userPurchasePluto == 2)
+                else if (userPurchasePluto == 2 && userMoney > purchaseDiamond)
                 {
-                userMoney -= 700;
+                    userMoney -= 700;
+                    diamondCargo++;
+                }
+                else if (userPurchasePluto == 3)
+                {
+                    MainMenuPluto();
                 }
                 else
                 {
-                Console.WriteLine("Invalid input. Please select an option");
+                Console.WriteLine("Invalid input.");
                 }
 
-                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Your current balance is: " + userMoney + "Your current cargo is: " + userCargo);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
                 validInput = false;
@@ -273,7 +315,7 @@ namespace SpaceTrader
                 Console.WriteLine("What would you like to sell?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
-                "Type 2 for Diamond $700 Cargo space = 3" };
+                "Type 2 for Diamond $700 Cargo space = 3", "Type 3 to exit" };
                 menu.AddRange(cargoItems);
                 foreach (string cargoItem in menu)
                 {
@@ -284,22 +326,29 @@ namespace SpaceTrader
 
                 if (userPurchasePluto == 0)
                 {
-                userMoney += 300;
+                    userMoney += 300;
+                    silverCargo--;
                 }
                 else if (userPurchasePluto == 1)
                 {
-                userMoney += 200;
+                    userMoney += 200;
+                    goldCargo--;
                 }
                 else if (userPurchasePluto == 2)
                 {
-                userMoney += 700;
+                    userMoney += 700;
+                    diamondCargo--;
+                }
+                else if (userPurchasePluto == 3)
+                {
+                    MainMenuPluto();
                 }
                 else
                 {
                 Console.WriteLine("Invalid input. Please select an option");
                 }
 
-                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Your current balance is: " + userMoney + "Your current cargo is: " + userCargo);
                 Console.WriteLine("Press enter to continue");
                 Console.ReadLine();
                 validInput = false;
@@ -313,7 +362,7 @@ namespace SpaceTrader
                 Console.WriteLine("What would you like to sell?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
-                "Type 2 for Diamond $300 Cargo space = 3" };
+                "Type 2 for Diamond $300 Cargo space = 3", "Type 3 to exit" };
                 menu.AddRange(cargoItems);
                 foreach (string cargoItem in menu)
                 {
@@ -324,22 +373,29 @@ namespace SpaceTrader
 
                 if (userPurchaseAlpha == 0)
                 {
-                userMoney += 100;
+                    userMoney += 100;
+                    silverCargo--;
                 }
                 else if (userPurchaseAlpha == 1)
                 {
-                userMoney += 400;
+                    userMoney += 400;
+                    goldCargo--;
                 }
                 else if (userPurchaseAlpha == 2)
                 {
-                userMoney += 300;
+                    userMoney += 300;
+                    diamondCargo--;
+                }
+                else if (userPurchaseAlpha == 3)
+                {
+                    MainMenuAlpha();
                 }
                 else
                 {
                 Console.WriteLine("Invalid input. Please select an option");
                 }
 
-                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Your current balance is: " + userMoney + "Your current cargo is: " + userCargo);
                 Console.WriteLine("Press 'enter' to continue");
                 Console.ReadLine();
                 validInput = false;
@@ -353,7 +409,7 @@ namespace SpaceTrader
                 Console.WriteLine("What would you like to sell?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
-                "Type 2 for Diamond $700 Cargo space = 3" };
+                "Type 2 for Diamond $700 Cargo space = 3", "Type 3 to exit" };
                 menu.AddRange(cargoItems);
                 foreach (string cargoItem in menu)
                 {
@@ -364,22 +420,29 @@ namespace SpaceTrader
 
                 if (userPurchasePluto == 0)
                 {
-                userMoney += 300;
+                    userMoney += 300;
+                    silverCargo--;
                 }
                 else if (userPurchasePluto == 1)
                 {
-                userMoney += 200;
+                    userMoney += 200;
+                    goldCargo--;
                 }
                 else if (userPurchasePluto == 2)
                 {
-                userMoney += 700;
+                    userMoney += 700;
+                    diamondCargo--;
+                }
+                else if (userPurchasePluto == 3)
+                {
+                    MainMenuPluto();
                 }
                 else
                 {
                 Console.WriteLine("Invalid input. Please select an option");
                 }
 
-                Console.WriteLine("Your current balance is: " + userMoney);
+                Console.WriteLine("Your current balance is: " + userMoney + "Your current cargo is: " + userCargo);
                 Console.WriteLine("Press 'enter' to continue");
                 Console.ReadLine();
                 validInput = false;
@@ -399,14 +462,17 @@ namespace SpaceTrader
             
             if (planetSelection == 1)
             {
+                Console.Clear();
                 MainMenuEarth();
             }
             else if (planetSelection == 2)
             {
+                Console.Clear();
                 MainMenuAlpha();
             }
             else if (planetSelection == 3)
             {
+                Console.Clear();
                 MainMenuPluto();
             }
             else
@@ -417,11 +483,20 @@ namespace SpaceTrader
             
         }
 
-        static void exit()
+        static void Exit()
         {
-
+            Console.Clear();
+            Console.WriteLine("GAME OVER");
+            UserStats();
+            Console.ReadLine();
         }
 
+        static int DisplayCargo()
+        {
+            userCargo += silverCargo + goldCargo + diamondCargo;
+            return userCargo;
+        }
+        
         
     }
 }
