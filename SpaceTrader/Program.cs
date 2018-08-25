@@ -13,6 +13,9 @@ namespace SpaceTrader
         static double timeTrav = 0;
         static double moneyTotal = 0;        
         static bool validInput = true;
+        static int cargoCap = 0;
+        static double shipSpeed = 0;
+         
         
 
         static void Main(string[] args)
@@ -451,7 +454,56 @@ namespace SpaceTrader
 
         static void ShipUp()
         {
+            do
+            {
+                Console.WriteLine("Welcome to the Ship Garage. Which ship would you like?");
+                Console.WriteLine("Type 1 for Basic $0 Max Speed: 3 Cargo Max: 5, Type 2 for Intermediate $2000  Max Speed: 6 Cargo Max: 10," +
+                    " Type 3 for Advanced $5000 Max Speed: 9 Cargo Max: 15 or Type 4 to Exit");
+                int shipSelection = int.Parse(Console.ReadLine());
 
+                if (shipSelection == 1)
+                {
+                    BasicShip();
+                }
+                else if (shipSelection == 2)
+                {
+                    InterShip();
+                }
+                else if (shipSelection == 3)
+                {
+                    AdvShip();
+                }
+                else if (shipSelection == 4)
+                {
+                    MainMenuEarth();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please select an option.");
+                }
+            } while (!validInput);
+        }
+
+        static void BasicShip()
+        {
+            double shipSpeed = (Math.Pow(3, 10.0 / 3) + Math.Pow(7, -11.0 / 3));
+            cargoCap = 5;
+        }
+
+        static void InterShip()
+        {
+            userMoney -= 2000;
+            Console.WriteLine("Congratulations!! You purchased the Intermediate Ship!");
+            double shipSpeed = (Math.Pow(6, 10.0 / 3) + Math.Pow(4, -11.0 / 3));
+            cargoCap = 10;
+        }
+
+        static void AdvShip()
+        {
+            userMoney -= 5000;
+            Console.WriteLine("Congratulations!! You purchased the Advanced Ship!");
+            double shipSpeed = (Math.Pow(9, 10.0 / 3) + Math.Pow(1, -11.0 / 3));
+            cargoCap = 15;
         }
 
         static void Travel()
