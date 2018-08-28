@@ -38,9 +38,6 @@ namespace SpaceTrader
 
         static void UserStats()
         {
-            Console.WriteLine(userCargo);
-            Console.WriteLine(timeTrav);
-            Console.WriteLine(moneyTotal);
             Console.WriteLine(userMoney);
         }
 
@@ -208,7 +205,7 @@ namespace SpaceTrader
                 {
                     Console.WriteLine("Invalid input.");
                 }
-
+                Console.Clear();
                 Console.WriteLine("Your current balance is: " + userMoney);
                 Console.WriteLine("Your current silver cargo is: " + silverCargo);
                 Console.WriteLine("Your current gold cargo is: " + goldCargo);
@@ -262,7 +259,7 @@ namespace SpaceTrader
                 {
                 Console.WriteLine("Invalid input.");
                 }
-
+                Console.Clear();
                 Console.WriteLine("Your current balance is: " + userMoney);
                 Console.WriteLine("Your current silver cargo is: " + silverCargo);
                 Console.WriteLine("Your current gold cargo is: " + goldCargo);
@@ -316,7 +313,7 @@ namespace SpaceTrader
                 {
                 Console.WriteLine("Invalid input.");
                 }
-
+                Console.Clear();
                 Console.WriteLine("Your current balance is: " + userMoney);
                 Console.WriteLine("Your current silver cargo is: " + silverCargo);
                 Console.WriteLine("Your current gold cargo is: " + goldCargo);
@@ -330,7 +327,8 @@ namespace SpaceTrader
         static void SellMenuEarth()
         {
             do
-            { 
+            {
+                Console.Clear();
                 Console.WriteLine("What would you like to sell?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
@@ -366,7 +364,7 @@ namespace SpaceTrader
                 {
                 Console.WriteLine("Invalid input. Please select an option");
                 }
-
+                Console.Clear();
                 Console.WriteLine("Your current balance is: " + userMoney);
                 Console.WriteLine("Your current silver cargo is: " + silverCargo);
                 Console.WriteLine("Your current gold cargo is: " + goldCargo);
@@ -380,7 +378,8 @@ namespace SpaceTrader
         static void SellMenuAlpha()
         {
             do
-            { 
+            {
+                Console.Clear();
                 Console.WriteLine("What would you like to sell?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $100 Cargo space = 1", "Type 1 for Gold $400 Cargo space = 2",
@@ -416,7 +415,7 @@ namespace SpaceTrader
                 {
                 Console.WriteLine("Invalid input. Please select an option");
                 }
-
+                Console.Clear();
                 Console.WriteLine("Your current balance is: " + userMoney);
                 Console.WriteLine("Your current silver cargo is: " + silverCargo);
                 Console.WriteLine("Your current gold cargo is: " + goldCargo);
@@ -430,7 +429,8 @@ namespace SpaceTrader
          static void SellMenuPluto()
         {
             do
-            { 
+            {
+                Console.Clear();
                 Console.WriteLine("What would you like to sell?");
                 List<string> menu = new List<string>();
                 string[] cargoItems = { "Type 0 for Silver $300 Cargo space = 1", "Type 1 for Gold $200 Cargo space = 2",
@@ -466,7 +466,7 @@ namespace SpaceTrader
                 {
                 Console.WriteLine("Invalid input. Please select an option");
                 }
-
+                Console.Clear();
                 Console.WriteLine("Your current balance is: " + userMoney);
                 Console.WriteLine("Your current silver cargo is: " + silverCargo);
                 Console.WriteLine("Your current gold cargo is: " + goldCargo);
@@ -481,9 +481,13 @@ namespace SpaceTrader
         {
             do
             {
+                Console.Clear();
                 Console.WriteLine("Welcome to the Ship Garage. Which ship would you like?");
-                Console.WriteLine("Type 1 for Basic $0 Max Speed: 3 Cargo Max: 5, Type 2 for Intermediate $2000  Max Speed: 6 Cargo Max: 10," +
-                    " Type 3 for Advanced $5000 Max Speed: 9 Cargo Max: 15 or Type 4 to Exit");
+                Console.WriteLine("Type 1 for Basic $0 Max Speed: 3 Cargo Max: 5");
+                Console.WriteLine("Type 2 for Intermediate $2000  Max Speed: 6 Cargo Max: 10");
+                Console.WriteLine("Type 3 for Advanced $5000 Max Speed: 9 Cargo Max: 15");
+                Console.WriteLine("Type 4 to Exit");
+
                 int shipSelection = int.Parse(Console.ReadLine());
 
                 if (shipSelection == 1)
